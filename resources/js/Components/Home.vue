@@ -1,11 +1,10 @@
                                                             
 <template>
-    Add
-    vue
-    js
-    to
-    laravel
-    11
+  <div class="container">
+    <button class="btn btn-primary">
+      <i class="fas fa-thumbs-up"></i> Like
+    </button>
+  </div>
 </template>
 
 <script setup>
