@@ -1,10 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-// Overall API Routes
-// MUST BE PLACED ABOVE THE WEB ROUTES OR THEY WILL BE IGNORED AND PASSED THROUGH THE VUE ROUTER!!!!
-Route::prefix('api')->group(function () {
+Route::middleware('api.key')->prefix('api')->group(function () {
     Route::get('/', function () {
         $welcomeMessage = 'Welcome to the Dark Horse API';
 
@@ -21,10 +20,21 @@ Route::prefix('api')->group(function () {
             'Endpoints' => $routeList,
         ]);
     });
+
+    Route::prefix('auth')->group(function () {
+        Route::post('/login', [AuthController::class, 'login']);
+        Route::post('/logout', [AuthController::class, 'logout']);
+    });
+
+    Route::prefix('users')->group(function () {
+        Route::get('/', [AuthController::class, 'index']);
+        Route::post('/', [AuthController::class, 'store']);
+        Route::get('/{user}', [AuthController::class, 'show']);
+        Route::put('/{user}', [AuthController::class, 'update']);
+        Route::delete('/{user}', [AuthController::class, 'destroy']);
+    });
 });
 
 Route::get('/{any}', function () {
     return view('app');
 })->where('any', '.*');
-
-Auth::routes();
