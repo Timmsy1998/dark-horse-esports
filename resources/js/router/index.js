@@ -6,7 +6,7 @@ import store from "../store";
 const routes = [
     {
         path: "/",
-        redirect: "/home"
+        redirect: "/home",
     },
     {
         path: "/home",
@@ -39,11 +39,9 @@ router.beforeEach((to, from, next) => {
     if (maintenanceMode && !betaCodeIsValid && to.path !== "/maintenance") {
         next("/maintenance");
     } else {
+        document.title = to.meta.title || "Default Page Title";
         next();
     }
-
-    document.title = to.meta.title || "Default Page Title";
-    next();
 });
 
 export default router;
