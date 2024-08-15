@@ -27,12 +27,24 @@ const route = useRoute()
   min-height: 100vh;
 }
 .navigation-bar {
-  height: 10vh; /* 25% of the viewport height */
+  height: 20vh; /* 25% of the viewport height */
 }
 .content-area {
-  height: 80vh; /* 50% of the viewport height */
+  height: 60vh; /* 50% of the viewport height */
 }
 .footer-bar {
-  height: 10vh; /* 25% of the viewport height */
+  height: 20vh; /* 25% of the viewport height */
+}
+
+.pt-6 {
+  padding-top: 4rem;
+}
+
+.pt-7 {
+  padding-top: 5rem;
+}
+
+.pt-8 {
+  padding-top: 6rem;
 }
 </style>

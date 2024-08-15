@@ -5,12 +5,11 @@
   </template>
   
   <script setup>
-  // Your component logic goes here
   </script>
   
   <style scoped>
   .content-area {
-    background: linear-gradient(to bottom, #000000, #232323); /* dark black vertical gradient */
+    background: linear-gradient(to bottom, #000000, #232323);
   }
   </style>
   
